@@ -15,7 +15,9 @@ var quest3={question: questions[2], answers: answers, solution: solutions[2], pi
 var quest4={question: questions[3], answers: answers, solution: solutions[3], picture: images[3]};
 var questionArray=[quest1,quest2,quest3,quest4];
 var theQuest= 0;
-
+var espn = document.createElement("audio");
+espn.setAttribute("src", "assets/images/espnNHL.mp3");
+espn.play();
 
 function startGame (){
 		$("#questionLayout").empty();
@@ -30,7 +32,6 @@ function startGame (){
 	
 };
 startGame();
-
 	function GenerateQuestion(question){
 		
 		var questionDiv= $("<div>");
@@ -38,7 +39,6 @@ startGame();
 		$("#questionLayout").append(questionDiv);
 		questionDiv.html(question.question);	
 	for(var i=0; i<question.answers.length; i++){
-		setTimeout(checkSolution, 2000);
 		function checkSolution(){
 			
 			var check = this.getAttribute("value");
@@ -54,7 +54,7 @@ startGame();
 				// $(".image").src = images[i];
 				// questionLayout.html(images[i]);
 				$("#answers").html(question.solution);
-				// setTimeout(startGame, 6000);
+				setTimeout(startGame, 6000);
 				
 			}
 			else {
